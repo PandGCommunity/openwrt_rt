@@ -631,6 +631,16 @@ define Device/rt5350f-olinuxino-evb
 endef
 TARGET_DEVICES += rt5350f-olinuxino-evb
 
+define Device/rt5350f-t7838wip
+  DTS := RT5350F-T7838WIP
+  IMAGE_SIZE := $(ralink_default_fw_size_8M)
+  DEVICE_TITLE := Vstarcam T7838WIP
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb-ohci kmod-usb2 \
+                kmod-i2c-core kmod-i2c-ralink \
+                kmod-spi-dev kmod-sound-core kmod-sound-mt7620
+endef
+TARGET_DEVICES += rt5350f-t7838wip
+
 define Device/rt-g32-b1
   DTS := RT-G32-B1
   BLOCKSIZE := 4k

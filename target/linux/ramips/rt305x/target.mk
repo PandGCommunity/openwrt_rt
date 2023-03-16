@@ -7,6 +7,7 @@ BOARDNAME:=RT3x5x/RT5350 based boards
 FEATURES+=usb ramdisk
 CPU_TYPE:=24kc
 
+DEVICE_TYPE := bootloader
 DEFAULT_PACKAGES += kmod-rt2800-soc wpad-mini
 
 define Target/Description

@@ -15,8 +15,11 @@ define KernelPackage/iio-core
 	CONFIG_IIO_KFIFO_BUF \
 	CONFIG_IIO_TRIGGER=y \
 	CONFIG_IIO_TRIGGERED_BUFFER
+  DEPENDS:= \
+  $(if $(CONFIG_IIO_MS_SENSORS_I2C),+kmod-i2c-core)
   FILES:= \
 	$(LINUX_DIR)/drivers/iio/industrialio.ko \
+  $(if $(CONFIG_IIO_MS_SENSORS_I2C),$(LINUX_DIR)/drivers/iio/common/ms_sensors/ms_sensors_i2c.ko) \
 	$(if $(CONFIG_IIO_TRIGGERED_BUFFER),$(LINUX_DIR)/drivers/iio/industrialio-triggered-buffer.ko@lt4.4) \
 	$(if $(CONFIG_IIO_TRIGGERED_BUFFER),$(LINUX_DIR)/drivers/iio/buffer/industrialio-triggered-buffer.ko@ge4.4) \
 	$(LINUX_DIR)/drivers/iio/kfifo_buf.ko@lt4.4 \
@@ -102,6 +105,23 @@ endef
 
 $(eval $(call KernelPackage,iio-bmp280))
 
+define KernelPackage/iio-htu21
+  SUBMENU:=$(IIO_MENU)
+  TITLE:=HTU21/HTU21D pressure/temperatur sensor (I2C)
+  DEPENDS:=+kmod-i2c-core +kmod-iio-core
+  KCONFIG:=CONFIG_HTU21
+  FILES:=$(LINUX_DIR)/drivers/iio/humidity/htu21.ko
+  AUTOLOAD:=$(call AutoProbe,iio-htu21)
+endef
+define KernelPackage/iio-htu21/description
+ If you say yes here you get support for the Measurement Specialties
+ HTU21 humidity and temperature sensor.
+ This driver is also used for MS8607 temperature, pressure & humidity
+ sensor
+
+endef
+
+$(eval $(call KernelPackage,iio-htu21))
 
 define KernelPackage/iio-bmp280-i2c
   SUBMENU:=$(IIO_MENU)

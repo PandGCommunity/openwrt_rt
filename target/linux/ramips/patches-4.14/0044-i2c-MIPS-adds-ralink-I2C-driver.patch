@@ -384,7 +384,7 @@ Signed-off-by: John Crispin <blogic@openwrt.org>
 +
 +static int rt_i2c_init(struct rt_i2c *i2c)
 +{
-+	u32 reg;
++	u32 reg; rt_i2c_reset(i2c);
 +
 +	/* i2c_sclk = periph_clk / ((2 * clk_div) + 5) */
 +	i2c->clk_div = (clk_get_rate(i2c->clk) - (5 * i2c->cur_clk)) /
