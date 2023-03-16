@@ -111,7 +111,7 @@ define KernelPackage/iio-htu21
   DEPENDS:=+kmod-i2c-core +kmod-iio-core
   KCONFIG:=CONFIG_HTU21
   FILES:=$(LINUX_DIR)/drivers/iio/humidity/htu21.ko
-  AUTOLOAD:=$(call AutoProbe,iio-htu21)
+  AUTOLOAD:=$(call AutoProbe,htu21)
 endef
 define KernelPackage/iio-htu21/description
  If you say yes here you get support for the Measurement Specialties
