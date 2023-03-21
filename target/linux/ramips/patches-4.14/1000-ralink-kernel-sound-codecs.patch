@@ -1,0 +1,22 @@
+Index: linux-4.14.206/sound/soc/codecs/Kconfig
+===================================================================
+--- linux-4.14.206.orig/sound/soc/codecs/Kconfig
++++ linux-4.14.206/sound/soc/codecs/Kconfig
+@@ -12,7 +12,7 @@ menu "CODEC drivers"
+ 
+ config SND_SOC_ALL_CODECS
+ 	tristate "Build all ASoC CODEC drivers"
+-	depends on COMPILE_TEST
++	depends on COMPILE_TEST || SOC_RT305X
+ 	select SND_SOC_88PM860X if MFD_88PM860X
+ 	select SND_SOC_L3
+ 	select SND_SOC_AB8500_CODEC if ABX500_CORE
+@@ -203,7 +203,7 @@ config SND_SOC_ALL_CODECS
+ 	select SND_SOC_WM8978 if I2C
+ 	select SND_SOC_WM8983 if SND_SOC_I2C_AND_SPI
+ 	select SND_SOC_WM8985 if SND_SOC_I2C_AND_SPI
+-	select SND_SOC_WM8988 if SND_SOC_I2C_AND_SPI
++	select SND_SOC_WM8988 if SND_SOC_I2C_AND_SPI || SND_RALINK_SOC_I2S
+ 	select SND_SOC_WM8990 if I2C
+ 	select SND_SOC_WM8991 if I2C
+ 	select SND_SOC_WM8993 if I2C
