@@ -60,16 +60,12 @@
             // ralink,group = "jtag", "led";
             ralink,function = "gpio";
         };
-        // refclk {
-        //     ralink,group = "refclk";
-        //     ralink,function = "refclk";
-        // };
+        i2s {
+            ralink,group = "uartf";
+            ralink,function = "pcm i2s";
+        };
     };
 };
-
-// &pcm {
-//     status = "okay";
-// };
 
 &ethernet {
     mtd-mac-address = <&factory 0x4>;
@@ -109,11 +105,10 @@
 
 &i2s {
     status = "okay";
-    #sound-dai-cells = <0>;
 };
 
-&pcm {
-    // status = "okay";
+&gdma {
+    status = "okay";
 };
 
 &uart {
@@ -122,31 +117,20 @@
 
 /*
  * Audio:
- * Audio Multiplexer mit Audiokanal 4
+ * Audio Multiplexer
  * I2C mit Wolfson WM8988
  */
 / {
-    sound-my-wm8988 {
-        compatible = "simple-audio-card";
-        simple-audio-card,name = "Wolfson WM8988";
-        simple-audio-card,format = "i2s";
-        simple-audio-card,widgets =
-            "Headphone", "Headphone Jack",
-            "Speaker", "External Speaker";
-        simple-audio-card,routing =
-            "Headphone Jack", "LOUT1",
-            "External Speaker", "LOUT2";
-
-        simple-audio-card,cpu {
-            sound-dai = <&i2s>;
-            system-clock-frequency = <3072000>;
-            bitclock-master;
-            frame-master;
-        };
-        simple-audio-card,codec {
-            sound-dai = <&wm8988 0x1b>;
-            // sound-dai = <&wm8988 0>;
-            system-clock-frequency  = <24000000>;
-        };
+    sound {
+        compatible = "ralink,rt5350f-wm8988-machine";
+        ralink,platform = <&i2s>;
+        ralink,audio-codec = <&wm8988>;
+        audio-routing =
+            "Headphone", "LOUT1",
+            "Headphone", "ROUT1",
+            "Ext Spk", "LOUT2",
+            "Ext Spk", "ROUT2",
+            "LINPUT1", "Mic",
+            "RINPUT1", "Mic";
     };
 };

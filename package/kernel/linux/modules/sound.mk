@@ -536,30 +536,3 @@ define KernelPackage/sound-hda-intel/description
 endef
 
 $(eval $(call KernelPackage,sound-hda-intel))
-
-define KernelPackage/sound-ralink-wm8988
-  SUBMENU:=$(SOUND_MENU)
-  TITLE:=Ralink PCM/I2S Alsa Driver for wm8988
-  DEPENDS:=@TARGET_ramips +kmod-sound-soc-core +kmod-regmap +kmod-dma-ralink @!TARGET_ramips_rt288x
-  KCONFIG:= CONFIG_SND_SOC \
-   CONFIG_SND_DEBUG=y \
-   CONFIG_SND_DEBUG_VERBOSE=y \
-   CONFIG_SND_SOC_ALL_CODECS \
-   CONFIG_SND_SOC_WM8988 \
-   CONFIG_SND_RALINK_SOC_I2S \
-   CONFIG_SND_SIMPLE_CARD \
-   CONFIG_SND_SIMPLE_CARD_UTILS
-  FILES:= \
-	$(LINUX_DIR)/sound/soc/codecs/snd-soc-wm8988.ko \
-	$(LINUX_DIR)/sound/soc/ralink/snd-soc-ralink-i2s.ko \
-	$(LINUX_DIR)/sound/soc/generic/snd-soc-simple-card.ko \
-	$(LINUX_DIR)/sound/soc/generic/snd-soc-simple-card-utils.ko
-  AUTOLOAD:=$(call AutoLoad,90,snd-soc-wm8988 snd-soc-ralink-i2s snd-soc-simple-card)
-  $(call AddDepends/sound)
-endef
-
-define KernelPackage/sound-ralink-wm8988/description
- Alsa modules for ralink i2s controller.
-endef
-
-$(eval $(call KernelPackage,sound-ralink-wm8988))
