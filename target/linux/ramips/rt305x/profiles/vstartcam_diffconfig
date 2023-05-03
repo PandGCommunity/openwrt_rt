@@ -1,0 +1,47 @@
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_rt305x=y
+CONFIG_TARGET_ramips_rt305x_DEVICE_rt5350f-t7838wip=y
+CONFIG_BUSYBOX_CUSTOM=y
+CONFIG_BUSYBOX_CONFIG_I2CDETECT=y
+CONFIG_BUSYBOX_CONFIG_I2CDUMP=y
+CONFIG_BUSYBOX_CONFIG_I2CGET=y
+CONFIG_BUSYBOX_CONFIG_I2CSET=y
+# CONFIG_FEED_luci is not set
+# CONFIG_FEED_packages is not set
+# CONFIG_FEED_routing is not set
+# CONFIG_FEED_telephony is not set
+# CONFIG_IPV6 is not set
+CONFIG_KERNEL_DYNAMIC_DEBUG=y
+# CONFIG_KERNEL_IPV6 is not set
+CONFIG_LIBCURL_COOKIES=y
+CONFIG_LIBCURL_FILE=y
+CONFIG_LIBCURL_FTP=y
+CONFIG_LIBCURL_HTTP=y
+CONFIG_LIBCURL_MBEDTLS=y
+CONFIG_LIBCURL_NO_SMB="!"
+CONFIG_LIBCURL_PROXY=y
+CONFIG_PACKAGE_alsa-utils-seq=y
+CONFIG_PACKAGE_boost=y
+CONFIG_PACKAGE_boost-container=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_kmod-i2c-algo-bit=y
+CONFIG_PACKAGE_kmod-i2c-gpio=y
+CONFIG_PACKAGE_kmod-i2c-gpio-custom=y
+CONFIG_PACKAGE_kmod-iio-core=y
+CONFIG_PACKAGE_kmod-iio-htu21=y
+# CONFIG_PACKAGE_kmod-sound-mt7620 is not set
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_libexpat=y
+CONFIG_PACKAGE_libflac=y
+CONFIG_PACKAGE_libltdl=y
+CONFIG_PACKAGE_libmbedtls=y
+CONFIG_PACKAGE_libmpdclient=y
+CONFIG_PACKAGE_libmpg123=y
+CONFIG_PACKAGE_libogg=y
+CONFIG_PACKAGE_libstdcpp=y
+CONFIG_PACKAGE_libvorbisidec=y
+CONFIG_PACKAGE_mpd-mini=y
+CONFIG_PACKAGE_zlib=y
+CONFIG_boost-runtime-shared=y
+CONFIG_boost-static-and-shared-libs=y
+CONFIG_boost-variant-release=y

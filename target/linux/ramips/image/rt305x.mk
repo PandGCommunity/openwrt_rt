@@ -637,7 +637,9 @@ define Device/rt5350f-t7838wip
   DEVICE_TITLE := Vstarcam T7838WIP
   DEVICE_PACKAGES := kmod-usb-core kmod-usb-ohci kmod-usb2 \
                 kmod-i2c-core kmod-i2c-ralink \
-                kmod-spi-dev kmod-sound-core kmod-sound-mt7620
+                kmod-spi-dev kmod-sound-core kmod-sound-mt7620 \
+                kmod-sound-rt5350f-wm8988 kmod-fs-nfs kmod-fs-nfs-common \
+                kmod-fs-nfs-v3 kmod-fs-nfs-v4 alsa-utils
 endef
 TARGET_DEVICES += rt5350f-t7838wip
 
