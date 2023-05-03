@@ -55,9 +55,9 @@
 &pinctrl {
     state_default: pinctrl0 {
         gpio {
-            ralink,group = "led";
+            // ralink,group = "led";
             // ralink,group = "i2c", "led";
-            // ralink,group = "jtag", "led";
+            ralink,group = "jtag", "led";
             ralink,function = "gpio";
         };
         i2s {
